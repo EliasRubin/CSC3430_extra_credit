@@ -4,7 +4,7 @@ Prompt:
 
 Solution:
 
-
+The takeaway from the prompt is that there's a straight road from point A to point B so I can simplify it to making sure there is a mark within 4 units of every point. With that in mind the easiest efficient approach would be taking the first point and placing a mark four units away from it and then ignoring points for the next 4 units after that, then simply repeating the process until all points have been accounted for. This runs at O(n) making it an efficient solution, note that this only works on sorted lists of floats going from least to greatest in the form of a text file, as the assignment was open-ended I decided to go for ideal data inputs, though it does have checks for cases where eithher a file isnt entered or a file doesn't exist. If it was designed to be part of a larger product it could be modified to tank an input and produce an output but as it's standalone I opted to use a simple GUI for usability.
 
 Device:
 
