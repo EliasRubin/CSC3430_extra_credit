@@ -16,7 +16,7 @@ entry = tk.Entry()
 output = tk.Label()
 
 
-def determine_phone_lines(houseLocations):
+def determine_phone_lines(houses):
 
    
 
@@ -24,8 +24,8 @@ def determine_phone_lines(houseLocations):
 
 
 
-    phoneTowerCount = 0
-    lastTowerLocation = 0
+    baseStationCount = 0
+    lastStationLocation = 0
 
 
     print("Base Station Locations:")
@@ -33,25 +33,22 @@ def determine_phone_lines(houseLocations):
 
 
 
-    for line in houseLocations:
-        temp = float(line.strip())
+    for i in houses:
         
-        
-        if(phoneTowerCount == 0 or temp > lastTowerLocation + 4):
-            phoneTowerCount += 1
-            lastTowerLocation = temp + 4
-            outputStr += str(lastTowerLocation)
+        if(baseStationCount == 0 or i > lastStationLocation + 4):
+            baseStationCount += 1
+            lastStationLocation = i + 4
+            outputStr += str(lastStationLocation)
             outputStr += " miles\n"
 
 
 
     outputStr += "Total Base Stations Needed: "
-    outputStr += str(phoneTowerCount)
+    outputStr += str(baseStationCount)
 
    
     output.config(text = outputStr)
 
-    houseLocations.close()
 
 
 
@@ -62,7 +59,15 @@ def read_file():
     else:
         if path.exists(entry.get()) == True:
             houseLocations = open(entry.get(), "r")
-            determine_phone_lines(houseLocations)
+            houses = []
+            for line in houseLocations:
+                houses.append(float(line.strip()))
+
+            houses = sorted(houses, key = float)
+
+
+            houseLocations.close()
+            determine_phone_lines(houses)
         else:
             tk.messagebox.showerror(title = "Error", message = "File not Found")
 
