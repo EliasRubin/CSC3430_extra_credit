@@ -8,7 +8,7 @@ from os import path
 
 
 window = tk.Tk()
-window.title("Powerline Planner")
+window.title("Base Station Planner")
 window.geometry("300x350")
 
 label = tk.Label(text = "File Name: ")
