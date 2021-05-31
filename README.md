@@ -23,7 +23,7 @@ sys (https://docs.python.org/3/library/sys.html)
 
 ### User Manual:
 
-On opening the application the user will be prompted to input a file name, note that files should be in the same folder as the application. Upon entering an existing file name of a valid file an output will apear below stating the locations of the needed base stations in miles along the road as well as the total number of stations needed. A file must contain nothing but sorted numbers from least to greatest and have them be sepperated by new lines in order for the application to function properly. If no file is entered or a file does not exist a pop-up error message will appear.
+On opening the application the user will be prompted to input a file name, note that files should be in the same folder as the application. The user should then ckick the "enter" button. Upon entering an existing file name of a valid file an output will apear below stating the locations of the needed base stations in miles along the road as well as the total number of stations needed. A file must contain nothing but sorted numbers from least to greatest and have them be sepperated by new lines in order for the application to function properly. If no file is entered or a file does not exist a pop-up error message will appear. The program can be used multiple times without having to exit out and re-open it.
 ## Example File:
     Group1.txt
 ## Example File Contents:
