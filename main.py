@@ -20,7 +20,7 @@ def determine_phone_lines(houseLocations):
 
    
 
-    outputStr = "Cell Tower Locations: \n"
+    outputStr = "Base Station Locations: \n"
 
 
 
@@ -28,7 +28,7 @@ def determine_phone_lines(houseLocations):
     lastTowerLocation = 0
 
 
-    print("Tower Locations:")
+    print("Base Station Locations:")
 
 
 
@@ -45,7 +45,7 @@ def determine_phone_lines(houseLocations):
 
 
 
-    outputStr += "Total Cell Towers Needed: "
+    outputStr += "Total Base Stations Needed: "
     outputStr += str(phoneTowerCount)
 
    
