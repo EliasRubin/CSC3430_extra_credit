@@ -34,7 +34,7 @@ def determine_phone_lines(houseLocations):
 
 
     for line in houseLocations:
-        temp = int(line.strip())
+        temp = float(line.strip())
         
         
         if(phoneTowerCount == 0 or temp > lastTowerLocation + 4):
