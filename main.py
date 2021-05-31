@@ -1,16 +1,38 @@
 #!/usr/local/bin/python3
+
+import tkinter as tk
+from tkinter import messagebox
 import sys
 import os
+from os import path
 
+
+window = tk.Tk()
+window.title("Powerline Planner")
+window.geometry("300x350")
+
+label = tk.Label(text = "File Name: ")
+entry = tk.Entry()
+output = tk.Label()
 
 
 def determine_phone_lines(houseLocations):
 
-    phoneTowerCount = 0;
-    lastTowerLocation = 0;
+   
+
+    outputStr = "Cell Tower Locations: \n"
+
+
+
+    phoneTowerCount = 0
+    lastTowerLocation = 0
 
 
     print("Tower Locations:")
+
+
+
+
     for line in houseLocations:
         temp = int(line.strip())
         
@@ -18,21 +40,33 @@ def determine_phone_lines(houseLocations):
         if(phoneTowerCount == 0 or temp > lastTowerLocation + 4):
             phoneTowerCount += 1
             lastTowerLocation = temp + 4
-            print(lastTowerLocation)
-
-    print("Total Towers Needed: ")
-    print(phoneTowerCount)
+            outputStr += str(lastTowerLocation)
+            outputStr += " miles\n"
 
 
 
+    outputStr += "Total Cell Towers Needed: "
+    outputStr += str(phoneTowerCount)
 
-def read_file(fileName):
-    
-    houseLocations = open(fileName, "r")
-#Safety checks to make sure that the file is valid
+   
+    output.config(text = outputStr)
+
+    houseLocations.close()
 
 
-    determine_phone_lines(houseLocations)
+
+def read_file():
+
+    if entry.get() == '':
+        tk.messagebox.showerror(title = "Error", message = "Please enter a file name")
+    else:
+        if path.exists(entry.get()) == True:
+            houseLocations = open(entry.get(), "r")
+            determine_phone_lines(houseLocations)
+        else:
+            tk.messagebox.showerror(title = "Error", message = "File not Found")
+
+
 
 
 
@@ -40,8 +74,12 @@ def read_file(fileName):
 def main():
     
 
+    button = tk.Button(text = "Enter ", command = read_file).grid(row = 1, column = 0)
+    label.grid(row = 0, column = 0)
+    entry.grid(row = 0, column = 1)
+    output.grid(row = 2, column = 0)
 
-    read_file("group1.txt")
+    window.mainloop()
 
 
 
@@ -51,4 +89,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
